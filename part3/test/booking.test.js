@@ -11,12 +11,21 @@ describe('Booking', () => {
   let booking = new Booking(startDate, endDate)
 
   it('initializes', () => {
-    expect(booking.startDate).to.equal(startDate)
-    expect(booking.endDate).to.equal(endDate)
+    expect(booking.startDate).to.deep.equal(startDate)
+    expect(booking.endDate).to.deep.equal(endDate)
   })
 
   it('calculates the number of days', () => {
     expect(booking.numberOfDays()).to.equal(5)
+  })
+
+  it('Knows if it is in the past', () => {
+    expect(booking.isFuture()).to.equal(false)
+  })
+
+  it('Knows if it is in the future', () => {
+    booking2 = new Booking(new Date('2120-01-01'), new Date('2120-01-01'))
+    expect(booking2.isFuture()).to.equal(true)
   })
 
   it('is not authorized to begin with', () => {

@@ -1,7 +1,7 @@
 class Booking {
   constructor(startDate, endDate) {
-    this.startDate = startDate
-    this.endDate = endDate
+    this.startDate = new Date(startDate)
+    this.endDate = new Date(endDate)
     this._authorizedBy = null
     this._authorizedOn = null
   }
@@ -25,6 +25,11 @@ class Booking {
 
   authorizedOn() {
     return this._authorizedOn
+  }
+
+  isFuture() {
+    // A booking is assumed to be in the future if its end date is in the future.
+    return this.endDate > new Date()
   }
 }
 
