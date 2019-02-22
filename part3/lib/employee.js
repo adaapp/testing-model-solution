@@ -19,7 +19,7 @@ class Employee {
   }
 
   makeBooking(startDate, endDate) {
-    let booking = new Booking(startDate, endDate)
+    const booking = new Booking(startDate, endDate)
     this._bookings.push(booking)
     return booking
   }
@@ -43,7 +43,7 @@ class Employee {
   }
 
   pastBookings(limitToAuthorized = false) {
-    let bookings = this.bookings.filter((booking) => !booking.isFuture())
+    const bookings = this.bookings.filter((booking) => !booking.isFuture())
     if (limitToAuthorized) {
       return bookings.filter((booking) => booking.isAuthorized())
     }
@@ -51,7 +51,7 @@ class Employee {
   }
 
   futureBookings(limitToAuthorized = false) {
-    let bookings = this.bookings.filter((booking) => booking.isFuture())
+    const bookings = this.bookings.filter((booking) => booking.isFuture())
     if (limitToAuthorized) {
       return bookings.filter((booking) => booking.isAuthorized())
     }

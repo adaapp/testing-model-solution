@@ -1,14 +1,14 @@
-const chai = require('chai')
-const expect = chai.expect
+const { expect } = require('chai')
+
 const Booking = require('../lib/booking')
 
 describe('Booking', () => {
-  let startDate = new Date('2017-09-01')
-  let endDate = new Date('2017-09-05')
-  let authorisationDate = new Date('2018-01-01')
-  let today = new Date()
+  const startDate = new Date('2017-09-01')
+  const endDate = new Date('2017-09-05')
+  const authorisationDate = new Date('2018-01-01')
+  const today = new Date()
 
-  let booking = new Booking(startDate, endDate)
+  const booking = new Booking(startDate, endDate)
 
   it('initializes', () => {
     expect(booking.startDate).to.deep.equal(startDate)
@@ -24,7 +24,7 @@ describe('Booking', () => {
   })
 
   it('Knows if it is in the future', () => {
-    booking2 = new Booking(new Date('2120-01-01'), new Date('2120-01-01'))
+    const booking2 = new Booking(new Date('2120-01-01'), new Date('2120-01-01'))
     expect(booking2.isFuture()).to.equal(true)
   })
 
